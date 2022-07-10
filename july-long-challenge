@@ -1,0 +1,56 @@
+chef is trying to solve a problem having T test cases, where, for each test case he is given a single integer N.
+
+Chef has an algorithm which takes exactly N2 iterations for a test case with value N.
+
+The constraints of the problem are as follows:
+
+1≤T≤maxT
+1≤N≤maxN
+Sum of N over all test cases does not exceed sumN.
+Given the values maxT,maxN, and sumN, determine the maximum number of iterations Chef's algorithm can take for any valid input file satisfying all the constraints.
+
+Formally speaking, find the maximum value of N21+N22+⋯+N2T for:
+1≤T≤maxT
+1≤Ni≤maxN
+N1+N2+N3+⋯+NT≤sumN
+
+.....
+ANSWER
+.....
+# cook your dish here
+for i in range(int(input())):
+    x,y,z=list(map(int,input().split()))
+    sum=0
+    for i in range(x):
+        sum=sum+y
+        if sum>=z:
+            break
+    if sum>z:
+        l=[]
+        k=0
+        for i in range(x):
+            k=k+y
+            l.append(k)
+            if k>=z:
+                break
+        d=0
+        for i in range(len(l)):
+            d=d+l[i]
+        
+        if d>=z:
+            l.remove(max(l))
+        v=max(l)
+        if v<z:
+            e=z-v
+        q=sum//y
+        t=0
+        for i in range(q-1):
+             t=t+(y*y)
+        print(t+(e*e))
+    else:
+        w=sum//y
+        j=0
+        for i in range(w):
+            j=j+(y*y)
+        print(j)
+    
